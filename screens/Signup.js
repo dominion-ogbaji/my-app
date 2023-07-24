@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 // formik
 import { Formik } from 'formik';
 
+
 import {
   StyledContainer,
   PageLogo,
@@ -25,8 +26,7 @@ import {
   TextLinkContent,
   Colors,
 } from './../components/styles';
-import { View, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
-
+import { View, ActivityIndicator, ScrollView, TouchableOpacity , Image } from 'react-native';
 //colors
 const { darkLight, brand, primary } = Colors;
 
@@ -76,9 +76,8 @@ const Signup = ({ navigation }) => {
         <StyledContainer>
             <StatusBar style="dark" />
             <InnerContainer>
-            <PageLogo resizeMode="cover" source={require('./../assets/img/expo-bg1.png')} />
-            <PageTitle>Flower Crib</PageTitle>
-            <SubTitle>Account Signup</SubTitle>
+            <PageLogo resizeMode="contain" source={require('../assets/img/pngwing2.png')} />
+            <PageTitle>Signup</PageTitle>
             {show && (
             <DateTimePicker
               testID="dateTimePicker"

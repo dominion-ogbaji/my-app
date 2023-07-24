@@ -51,9 +51,9 @@ const Login = ({ navigation }) => {
      <ScrollView>
     
         <StyledContainer>
-            <StatusBar style="dark" />
+            <StatusBar hidden />
             <InnerContainer>
-            <PageLogo resizeMode="cover" source={require('./../assets/img/expo-bg1.png')} />
+            <PageLogo resizeMode="cover" source={require('../assets/img/pngwing2.pngr')} />
             <PageTitle>Flower Crib</PageTitle>
             <SubTitle>Account Login</SubTitle>
             <Formik
