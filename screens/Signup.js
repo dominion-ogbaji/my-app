@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
-
 // formik
 import { Formik } from 'formik';
 
@@ -9,7 +8,6 @@ import {
   StyledContainer,
   PageLogo,
   PageTitle,
-  SubTitle,
   StyledInputLabel,
   StyledFormArea,
   StyledButton,
@@ -74,9 +72,9 @@ const Signup = ({ navigation }) => {
      <ScrollView>
     
         <StyledContainer>
-            <StatusBar style="dark" />
-            <InnerContainer>
-            <PageLogo resizeMode="contain" source={require('../assets/img/pngwing2.png')} />
+            <StatusBar />
+            <InnerContainer >
+            <PageLogo resizeMode="cover" source={require('../assets/img/pngwing2.png')} />
             <PageTitle>Signup</PageTitle>
             {show && (
             <DateTimePicker
@@ -107,8 +105,8 @@ const Signup = ({ navigation }) => {
             {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) => (
               <StyledFormArea>
                  <MyTextInput
-                  label="Full Name"
-                  placeholder="Richard Barnes"
+                  //label="Full Name"
+                  placeholder="Full Name"
                   placeholderTextColor={darkLight}
                   onChangeText={handleChange('name')}
                   onBlur={handleBlur('name')}
@@ -116,9 +114,9 @@ const Signup = ({ navigation }) => {
                   icon="person"
                 />
                 <MyTextInput
-                  label="Email Address"
-                  placeholder="andyj@gmail.com"
-                  placeholderTextColor={darkLight}
+                  //label="Email Address"
+                  placeholder="Email"
+                  placeholderTextColor={'rgba(0, 0, 0, 0.25)'}
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
                   value={values.email}
@@ -126,20 +124,8 @@ const Signup = ({ navigation }) => {
                   icon="mail"
                 />
                 <MyTextInput
-                  label="Date of Birth"
-                  placeholder="YYYY - MM - DD"
-                  placeholderTextColor={darkLight}
-                  onChangeText={handleChange('dateOfBirth')}
-                  onBlur={handleBlur('dateOfBirth')}
-                  value={dob ? dob.toDateString() : ''}
-                  icon="calendar"
-                  editable={false}
-                  isDate={true}
-                  showDatePicker={showDatePicker}
-                />
-                <MyTextInput
-                  label="Password"
-                  placeholder="* * * * * * * *"
+                  //label="Password"
+                  placeholder="Password"
                   placeholderTextColor={darkLight}
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
@@ -151,8 +137,8 @@ const Signup = ({ navigation }) => {
                   setHidePassword={setHidePassword}
                 />
                 <MyTextInput
-                  label="Confirm Password"
-                  placeholder="* * * * * * * *"
+                  //label="Confirm Password"
+                  placeholder="Confirm Password"
                   placeholderTextColor={darkLight}
                   onChangeText={handleChange('confirmPassword')}
                   onBlur={handleBlur('confirmPassword')}
@@ -235,5 +221,6 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, i
       </View>
       );
     };
-    
+
+
 export default Signup;

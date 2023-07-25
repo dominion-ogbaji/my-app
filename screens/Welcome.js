@@ -19,7 +19,7 @@ import {
 const Welcome = () => {
     return (
         <>
-          <StatusBar style="light" />
+          <StatusBar hidden />
           <InnerContainer>
             <WelcomeImage resizeMode="cover" source={require('./../assets/img/expo-bg2.png')} />
     

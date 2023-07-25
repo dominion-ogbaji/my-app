@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Image , StyleSheet} from 'react-native';
 import Constants from 'expo-constants';
 
 const StatusBarHeight = Constants.statusBarHeight;
@@ -21,7 +21,6 @@ export const StyledContainer = styled.View`
   flex: 1;
   padding: 0px;
   background-color: #FFFFFF;
-  border: 2px solid red;
 `;
 
 export const InnerContainer = styled.View`
@@ -40,8 +39,8 @@ export const WelcomeContainer = styled(InnerContainer)`
 `;
 
 export const PageLogo = styled.Image`
-  width: 230px;
-  height: 230px;
+  width: 211px;
+  height: 140px;
 `;
 
 export const Avatar = styled.Image`
@@ -61,11 +60,12 @@ export const WelcomeImage = styled.Image`
 `;
 
 export const PageTitle = styled.Text`
-  font-size: 30px;
+  font-size: 15px;
   text-align: right;
   font-weight: bold;
   color:#FFB800;
   padding: 10px;
+  padding-right: 52px;
 
   ${(props) =>
     props.welcome &&
@@ -90,16 +90,17 @@ export const SubTitle = styled.Text`
 `;
 
 export const StyledTextInput = styled.TextInput`
-  background-color: ${secondary};
+  background-color: #FFFFFF;
   padding: 15px;
   padding-left: 55px;
   padding-right: 55px;
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 16px;
-  height: 60px;
+  height: 56px;
   margin-vertical: 3px;
   margin-bottom: 10px;
   color: ${tertiary};
+  elevation: 5;
 `;
 
 export const StyledInputLabel = styled.Text`
@@ -142,7 +143,7 @@ export const StyledButton = styled.TouchableOpacity`
 
 export const ButtonText = styled.Text`
   color: ${primary};
-  font-size: 16px;
+  font-size: 15px;
  
 
   ${(props) =>
@@ -169,7 +170,9 @@ export const Line = styled.View`
 `;
 
 export const StyledFormArea = styled.View`
-  width: 90%;
+  width: 100%;
+  padding: 0px 20px 0px 20px;
+
 `;
 
 export const ExtraView = styled.View`

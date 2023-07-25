@@ -53,7 +53,7 @@ const Login = ({ navigation }) => {
         <StyledContainer>
             <StatusBar hidden />
             <InnerContainer>
-            <PageLogo resizeMode="cover" source={require('../assets/img/pngwing2.pngr')} />
+            <PageLogo resizeMode="cover" source={require('../assets/img/pngwing2.png')} />
             <PageTitle>Flower Crib</PageTitle>
             <SubTitle>Account Login</SubTitle>
             <Formik
