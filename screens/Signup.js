@@ -17,12 +17,16 @@ import {
   InnerContainer,
   ButtonText,
   MsgBox,
-  Line,
   ExtraView,
   ExtraText,
   TextLink,
   TextLinkContent,
   Colors,
+  SignupOptions,
+  SignupText,
+  SignupIcons,
+  BottomContainer,
+  BottomImage,
 } from './../components/styles';
 import { View, ActivityIndicator, ScrollView, TouchableOpacity , Image } from 'react-native';
 //colors
@@ -72,8 +76,8 @@ const Signup = ({ navigation }) => {
      <ScrollView>
     
         <StyledContainer>
-            <StatusBar />
-            <InnerContainer >
+          <StatusBar />
+          <InnerContainer >
             <PageLogo resizeMode="cover" source={require('../assets/img/pngwing2.png')} />
             <PageTitle>Signup</PageTitle>
             {show && (
@@ -161,34 +165,37 @@ const Signup = ({ navigation }) => {
                     <ActivityIndicator size="large" color={primary} />
                   </StyledButton>
                 )}
+                <SignupOptions>
+                  <SignupText>Sign Up with</SignupText>
+                  <SignupIcons>
+                    <BottomContainer><Image source={require('../assets/img/google.png')} /></BottomContainer>
+                    <BottomContainer><Image source={require('../assets/img/apple.png')} /></BottomContainer>
+                    <BottomContainer><Image source={require('../assets/img/facebook.png')}/></BottomContainer>
+                  </SignupIcons>
+                </SignupOptions>
 
-                <Line />
 
-                {!googleSubmitting && (
-                  <StyledButton onPress={handleSubmit} google={true}>
-                    <Fontisto name="google" size={25} color={primary} />
-                    <ButtonText google= {true} >Sign in with Google</ButtonText>
-                  </StyledButton>
-                )}
-                {googleSubmitting && (
-                  <StyledButton disabled={true} google={true}>
-                    <ActivityIndicator size="large" color={primary} />
-                  </StyledButton>
-                )}
 
-                 <ExtraView>
-                  <ExtraText>Don't have an account already? </ExtraText>
+
+
+                <ExtraView>
+                  <ExtraText>Already have an account? </ExtraText>
                   <TextLink onPress={() => navigation.navigate('Signup')}>
-                    <TextLinkContent>Signup</TextLinkContent>
+                    <TextLinkContent>Login</TextLinkContent>
                   </TextLink>
                 </ExtraView>
 
+
               
               </StyledFormArea>
+              
             )}
           </Formik>
-            </InnerContainer>
-        </StyledContainer>
+          <BottomImage>
+            <Image resizeMode="cover"  source={require('../assets/img/pngwing-2.png')} />
+          </BottomImage>
+        </InnerContainer>
+      </StyledContainer>
     </ScrollView>
 
     );

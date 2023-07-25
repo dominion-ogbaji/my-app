@@ -124,13 +124,16 @@ export const RightIcon = styled.TouchableOpacity`
 `;
 
 export const StyledButton = styled.TouchableOpacity`
-  padding: 15px;
-  background-color: ${brand};
+  padding: 10px;
+  width: 180px;
+  background-color: #3AB44A;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  margin-vertical: 5px;
-  height: 60px;
+  border-radius: 30px;
+  height: 46px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
   ${(props) =>
     props.google == true &&
@@ -174,12 +177,41 @@ export const StyledFormArea = styled.View`
   padding: 0px 20px 0px 20px;
 
 `;
+export const SignupOptions = styled.View `
+  margin: auto;
+`;
+export const SignupText = styled.Text`
+  font-size: 10px;
+  color: #000000;
+  font-weight: 700;
+  margin:auto;
+  margin-bottom: 20px;
+`;
+export const SignupIcons = styled.View`
+  flex: 1;
+  flex-direction: row;
+  width: 243.52px;
+  Height:46px;
+  justify-content: space-between;
+  text-align: center;
+`;
+export const BottomContainer = styled.View`
+  width: 47px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  background: #AAEBA440;
+  border-radius: 23px;
+
+
+`;
 
 export const ExtraView = styled.View`
   justify-content: center;
   flex-direction: row;
   align-items: center;
   padding: 10px;
+  
 `;
 
 export const ExtraText = styled.Text`
@@ -197,4 +229,12 @@ export const TextLink = styled.TouchableOpacity`
 export const TextLinkContent = styled.Text`
   color: ${brand};
   font-size: 15px;
+`;
+export const BottomImage = styled.View`
+  width: 180px;
+  height: 161px;
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0px;
 `;
