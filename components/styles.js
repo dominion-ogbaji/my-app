@@ -18,10 +18,11 @@ export const Colors = {
 const { primary, secondary, tertiary, darkLight, brand, green, red } = Colors;
 
 export const StyledContainer = styled.View`
-  flex: 1;
   padding: 0px;
-  background-color: #FFFFFF;
+  background-color: ${primary};
+  flex: 1;
 `;
+
 
 export const InnerContainer = styled.View`
   width: 100%;
@@ -29,14 +30,28 @@ export const InnerContainer = styled.View`
   padding: 0px;
   flex: 1;
   
+  
 
 `;
-
-export const WelcomeContainer = styled(InnerContainer)`
-  padding: 25px;
-  padding-top: 10px;
-  justify-content: center;
+export const WelcomeContainer = styled.View`
+  flex:1;
+  height: 100%;
+  background-color:#3AB44A;
 `;
+export const Welcome = styled.Text`
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 150px;
+  color: ${primary}
+`;
+export const CompanyName = styled.Text`
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  margin-top: -15px;
+  color: ${primary}
+`; 
 
 export const PageLogo = styled.Image`
   width: 211px;
@@ -54,10 +69,7 @@ export const Avatar = styled.Image`
   margin-top: 10px;
 `;
 
-export const WelcomeImage = styled.Image`
-  height: 50%;
-  min-width: 100%;
-`;
+
 
 export const PageTitle = styled.Text`
   font-size: 15px;
@@ -75,18 +87,14 @@ export const PageTitle = styled.Text`
 `;
 
 export const SubTitle = styled.Text`
-  font-size: 18px;
+  font-size: 30px;
   margin-bottom: 20px;
   letter-spacing: 1px;
-  font-weight: bold;
-  color: ${tertiary};
+  font-weight: 800;
+  align-self: center;
+  color: #3AB44A;
+  margin: 80px 0 80px 0;
 
-  ${(props) =>
-    props.welcome &&
-    `
-    margin-bottom: 5px;
-    font-weight: normal;
-  `}
 `;
 
 export const StyledTextInput = styled.TextInput`
@@ -133,7 +141,7 @@ export const StyledButton = styled.TouchableOpacity`
   height: 46px;
   margin: auto;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 
   ${(props) =>
     props.google == true &&
@@ -143,7 +151,32 @@ export const StyledButton = styled.TouchableOpacity`
     justify-content: center;
   `}
 `;
+export const WelcomeButton = styled.TouchableOpacity`
+  padding: 10px;
+  width: 322px;
+  background-color: #FFFFFF;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 55px;
+  margin: auto;
+  border: 2px solid red;
 
+  ${(props) =>
+    props.google == true &&
+    `
+    background-color: ${green};
+    flex-direction: row;
+    justify-content: center;
+  `}
+`;
+export const FPassword = styled.Text`
+    color:#3AB44A;
+    margin-top: -20px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 10px;
+`;
 export const ButtonText = styled.Text`
   color: ${primary};
   font-size: 15px;
@@ -158,6 +191,11 @@ export const ButtonText = styled.Text`
     
   `}
 `;
+export const WText = styled.Text`
+  color: #3AB44A;
+  font-size: 15px;
+  font-weight: 700;
+`
 
 export const MsgBox = styled.Text`
   text-align: center;
@@ -185,7 +223,6 @@ export const SignupText = styled.Text`
   color: #000000;
   font-weight: 700;
   margin:auto;
-  margin-bottom: 20px;
 `;
 export const SignupIcons = styled.View`
   flex: 1;
@@ -211,7 +248,8 @@ export const ExtraView = styled.View`
   flex-direction: row;
   align-items: center;
   padding: 10px;
-  
+  margin-top: 50px;
+  bottom: 0px;
 `;
 
 export const ExtraText = styled.Text`

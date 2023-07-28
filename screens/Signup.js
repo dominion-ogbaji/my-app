@@ -28,7 +28,7 @@ import {
   BottomContainer,
   BottomImage,
 } from './../components/styles';
-import { View, ActivityIndicator, ScrollView, TouchableOpacity , Image } from 'react-native';
+import { View, ActivityIndicator, ScrollView, TouchableOpacity , Image , StyleSheet} from 'react-native';
 //colors
 const { darkLight, brand, primary } = Colors;
 
@@ -73,7 +73,7 @@ const Signup = ({ navigation }) => {
 
   
     return (
-     <ScrollView>
+     <ScrollView contentContainerStyle={styles.scrollContent}>
     
         <StyledContainer>
           <StatusBar />
@@ -172,25 +172,17 @@ const Signup = ({ navigation }) => {
                     <BottomContainer><Image source={require('../assets/img/apple.png')} /></BottomContainer>
                     <BottomContainer><Image source={require('../assets/img/facebook.png')}/></BottomContainer>
                   </SignupIcons>
-                </SignupOptions>
-
-
-
-
-
-                <ExtraView>
+                </SignupOptions>              
+              </StyledFormArea>
+              
+            )}
+          </Formik>
+          <ExtraView>
                   <ExtraText>Already have an account? </ExtraText>
                   <TextLink onPress={() => navigation.navigate('Signup')}>
                     <TextLinkContent>Login</TextLinkContent>
                   </TextLink>
                 </ExtraView>
-
-
-              
-              </StyledFormArea>
-              
-            )}
-          </Formik>
           <BottomImage>
             <Image resizeMode="cover"  source={require('../assets/img/pngwing-2.png')} />
           </BottomImage>
@@ -200,6 +192,12 @@ const Signup = ({ navigation }) => {
 
     );
 }
+const styles = StyleSheet.create({
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
+});
     
 const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, isDate, showDatePicker, ...props }) => {
     return (
