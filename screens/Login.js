@@ -8,7 +8,7 @@ import {
   StyledContainer,
   PageLogo,
   PageTitle,
-  SubTitle,
+  BottomImage,
   StyledInputLabel,
   StyledFormArea,
   StyledButton,
@@ -18,14 +18,15 @@ import {
   InnerContainer,
   ButtonText,
   MsgBox,
-  Line,
   ExtraView,
   ExtraText,
   TextLink,
   TextLinkContent,
+  SubTitle,
+  FPassword,
   Colors,
 } from './../components/styles';
-import { View, ActivityIndicator, ScrollView } from 'react-native';
+import { View, ActivityIndicator, ScrollView, Image, StyleSheet} from 'react-native';
 
 //colors
 const { darkLight, brand, primary } = Colors;
@@ -48,14 +49,14 @@ const Login = ({ navigation }) => {
 
   
     return (
-     <ScrollView>
+     <ScrollView contentContainerStyle={styles.scrollContent}>
     
         <StyledContainer>
-            <StatusBar style="dark" />
-            <InnerContainer>
-            <PageLogo resizeMode="cover" source={require('./../assets/img/expo-bg1.png')} />
-            <PageTitle>Flower Crib</PageTitle>
-            <SubTitle>Account Login</SubTitle>
+          <StatusBar  />
+        <InnerContainer>
+            <PageLogo resizeMode="cover" source={require('../assets/img/pngwing2.png')} />
+            <SubTitle>Wi Gomarket</SubTitle>
+            <PageTitle>Welcome</PageTitle>
             <Formik
             initialValues={{ email: '', password: '' }}
             onSubmit={(values, { setSubmitting }) => {
@@ -70,8 +71,8 @@ const Login = ({ navigation }) => {
             {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) => (
               <StyledFormArea>
                 <MyTextInput
-                  label="Email Address"
-                  placeholder="andyj@gmail.com"
+                  //label="Email Address"
+                  placeholder="Email Address"
                   placeholderTextColor={darkLight}
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
@@ -80,8 +81,8 @@ const Login = ({ navigation }) => {
                   icon="mail"
                 />
                 <MyTextInput
-                  label="Password"
-                  placeholder="* * * * * * * *"
+                  //label="Password"
+                  placeholder="Password"
                   placeholderTextColor={darkLight}
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
@@ -93,6 +94,7 @@ const Login = ({ navigation }) => {
                   setHidePassword={setHidePassword}
                 />
                 <MsgBox type={messageType}>{message}</MsgBox>
+                <FPassword>Forgot Password?</FPassword>
 
                 {!isSubmitting && (
                   <StyledButton onPress={handleSubmit}>
@@ -105,14 +107,6 @@ const Login = ({ navigation }) => {
                   </StyledButton>
                 )}
 
-                <Line />
-
-                {!googleSubmitting && (
-                  <StyledButton onPress={handleSubmit} google={true}>
-                    <Fontisto name="google" size={25} color={primary} />
-                    <ButtonText google= {true} >Sign in with Google</ButtonText>
-                  </StyledButton>
-                )}
                 {googleSubmitting && (
                   <StyledButton disabled={true} google={true}>
                     <ActivityIndicator size="large" color={primary} />
@@ -120,7 +114,7 @@ const Login = ({ navigation }) => {
                 )}
 
                  <ExtraView>
-                  <ExtraText>Don't have an account already? </ExtraText>
+                  <ExtraText>Don't have an account? </ExtraText>
                   <TextLink onPress={() => navigation.navigate('Signup')}>
                     <TextLinkContent>Signup</TextLinkContent>
                   </TextLink>
@@ -130,8 +124,13 @@ const Login = ({ navigation }) => {
               </StyledFormArea>
             )}
           </Formik>
-            </InnerContainer>
+
+        </InnerContainer>
+
         </StyledContainer>
+        <BottomImage>
+            <Image resizeMode="cover"  source={require('../assets/img/pngwing-2.png')} />
+          </BottomImage>
     </ScrollView>
 
     );
@@ -157,5 +156,11 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, .
         </View>
       );
     };
+    const styles = StyleSheet.create({
+      scrollContent: {
+        flexGrow: 1,
+        justifyContent: 'center',
+      },
+    });
     
 export default Login;

@@ -1,45 +1,37 @@
 import React, { useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-import {
-  Avatar,
-  WelcomeImage,
-  PageTitle,
-  SubTitle,
-  StyledFormArea,
-  StyledButton,
-  InnerContainer,
+import { 
+  CompanyName,
   WelcomeContainer,
-  ButtonText,
-  Line,
+  WelcomeButton,
+  Welcome,
+  WText,
 } from './../components/styles';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 
 
-
-const Welcome = () => {
+const WelcomePage = () => {
     return (
-        <>
-          <StatusBar style="light" />
-          <InnerContainer>
-            <WelcomeImage resizeMode="cover" source={require('./../assets/img/expo-bg2.png')} />
-    
-            <WelcomeContainer>
-              <PageTitle welcome={true}>Welcome! Buddy</PageTitle>
-              <SubTitle welcome={true}> Olga Simpson</SubTitle>
-              <SubTitle welcome={true}> olgasimp@gmail.com</SubTitle>
-    
-              <StyledFormArea>
-                <Avatar resizeMode="cover" source={require('./../assets/img/expo-bg1.png')} />
-    
-                <Line />
-                <StyledButton onPress={() => {}}>
-                  <ButtonText>Logout</ButtonText>
-                </StyledButton>
-              </StyledFormArea>
-            </WelcomeContainer>
-          </InnerContainer>
-        </>
+        <ScrollView contentContainerStyle={styles.scrollContent}>
+          <StatusBar  />
+          <WelcomeContainer>
+            <Welcome>Welcome to</Welcome>
+            <CompanyName>Wi Gomarket</CompanyName>
+            <Welcome>Register as</Welcome>
+            <WelcomeButton><WText>Buyer</WText></WelcomeButton>
+            <WelcomeButton><WText>Seller</WText></WelcomeButton>
+            <WelcomeButton><WText>Rider</WText></WelcomeButton>
+          </WelcomeContainer>
+          
+        </ScrollView>
   );
 };
+const styles = StyleSheet.create({
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
+});
 
-export default Welcome;
+export default WelcomePage;

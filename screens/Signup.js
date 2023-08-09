@@ -1,14 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
-
 // formik
 import { Formik } from 'formik';
+
 
 import {
   StyledContainer,
   PageLogo,
   PageTitle,
-  SubTitle,
   StyledInputLabel,
   StyledFormArea,
   StyledButton,
@@ -18,15 +17,18 @@ import {
   InnerContainer,
   ButtonText,
   MsgBox,
-  Line,
   ExtraView,
   ExtraText,
   TextLink,
   TextLinkContent,
   Colors,
+  SignupOptions,
+  SignupText,
+  SignupIcons,
+  BottomContainer,
+  BottomImage,
 } from './../components/styles';
-import { View, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
-
+import { View, ActivityIndicator, ScrollView, TouchableOpacity , Image , StyleSheet} from 'react-native';
 //colors
 const { darkLight, brand, primary } = Colors;
 
@@ -71,14 +73,13 @@ const Signup = ({ navigation }) => {
 
   
     return (
-     <ScrollView>
+     <ScrollView contentContainerStyle={styles.scrollContent}>
     
         <StyledContainer>
-            <StatusBar style="dark" />
-            <InnerContainer>
-            <PageLogo resizeMode="cover" source={require('./../assets/img/expo-bg1.png')} />
-            <PageTitle>Flower Crib</PageTitle>
-            <SubTitle>Account Signup</SubTitle>
+          <StatusBar />
+          <InnerContainer >
+            <PageLogo resizeMode="cover" source={require('../assets/img/pngwing2.png')} />
+            <PageTitle>Signup</PageTitle>
             {show && (
             <DateTimePicker
               testID="dateTimePicker"
@@ -108,8 +109,8 @@ const Signup = ({ navigation }) => {
             {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) => (
               <StyledFormArea>
                  <MyTextInput
-                  label="Full Name"
-                  placeholder="Richard Barnes"
+                  //label="Full Name"
+                  placeholder="Full Name"
                   placeholderTextColor={darkLight}
                   onChangeText={handleChange('name')}
                   onBlur={handleBlur('name')}
@@ -117,9 +118,9 @@ const Signup = ({ navigation }) => {
                   icon="person"
                 />
                 <MyTextInput
-                  label="Email Address"
-                  placeholder="andyj@gmail.com"
-                  placeholderTextColor={darkLight}
+                  //label="Email Address"
+                  placeholder="Email"
+                  placeholderTextColor={'rgba(0, 0, 0, 0.25)'}
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
                   value={values.email}
@@ -127,20 +128,8 @@ const Signup = ({ navigation }) => {
                   icon="mail"
                 />
                 <MyTextInput
-                  label="Date of Birth"
-                  placeholder="YYYY - MM - DD"
-                  placeholderTextColor={darkLight}
-                  onChangeText={handleChange('dateOfBirth')}
-                  onBlur={handleBlur('dateOfBirth')}
-                  value={dob ? dob.toDateString() : ''}
-                  icon="calendar"
-                  editable={false}
-                  isDate={true}
-                  showDatePicker={showDatePicker}
-                />
-                <MyTextInput
-                  label="Password"
-                  placeholder="* * * * * * * *"
+                  //label="Password"
+                  placeholder="Password"
                   placeholderTextColor={darkLight}
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
@@ -152,8 +141,8 @@ const Signup = ({ navigation }) => {
                   setHidePassword={setHidePassword}
                 />
                 <MyTextInput
-                  label="Confirm Password"
-                  placeholder="* * * * * * * *"
+                  //label="Confirm Password"
+                  placeholder="Confirm Password"
                   placeholderTextColor={darkLight}
                   onChangeText={handleChange('confirmPassword')}
                   onBlur={handleBlur('confirmPassword')}
@@ -176,38 +165,39 @@ const Signup = ({ navigation }) => {
                     <ActivityIndicator size="large" color={primary} />
                   </StyledButton>
                 )}
-
-                <Line />
-
-                {!googleSubmitting && (
-                  <StyledButton onPress={handleSubmit} google={true}>
-                    <Fontisto name="google" size={25} color={primary} />
-                    <ButtonText google= {true} >Sign in with Google</ButtonText>
-                  </StyledButton>
-                )}
-                {googleSubmitting && (
-                  <StyledButton disabled={true} google={true}>
-                    <ActivityIndicator size="large" color={primary} />
-                  </StyledButton>
-                )}
-
-                 <ExtraView>
-                  <ExtraText>Don't have an account already? </ExtraText>
-                  <TextLink onPress={() => navigation.navigate('Signup')}>
-                    <TextLinkContent>Signup</TextLinkContent>
-                  </TextLink>
-                </ExtraView>
-
-              
+                <SignupOptions>
+                  <SignupText>Sign Up with</SignupText>
+                  <SignupIcons>
+                    <BottomContainer><Image source={require('../assets/img/google.png')} /></BottomContainer>
+                    <BottomContainer><Image source={require('../assets/img/apple.png')} /></BottomContainer>
+                    <BottomContainer><Image source={require('../assets/img/facebook.png')}/></BottomContainer>
+                  </SignupIcons>
+                </SignupOptions>              
               </StyledFormArea>
+              
             )}
           </Formik>
-            </InnerContainer>
-        </StyledContainer>
+          <ExtraView>
+                  <ExtraText>Already have an account? </ExtraText>
+                  <TextLink onPress={() => navigation.navigate('Signup')}>
+                    <TextLinkContent>Login</TextLinkContent>
+                  </TextLink>
+                </ExtraView>
+          <BottomImage>
+            <Image resizeMode="cover"  source={require('../assets/img/pngwing-2.png')} />
+          </BottomImage>
+        </InnerContainer>
+      </StyledContainer>
     </ScrollView>
 
     );
 }
+const styles = StyleSheet.create({
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
+});
     
 const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, isDate, showDatePicker, ...props }) => {
     return (
@@ -236,5 +226,6 @@ const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, i
       </View>
       );
     };
-    
+
+
 export default Signup;
